@@ -7,8 +7,8 @@ import {
   createHealthMonitor as createMlabsHealthMonitor,
   healthLogging,
   createHealthy
-} from '@meltwater/mlabs-health'
-import { objFromKeys, sleeP } from '@meltwater/phi'
+} from '@pureskillgg/mlabs-health'
+import { objFromKeys, sleeP } from '@pureskillgg/phi'
 
 import { createServer, koaHealthy, createHealthCheck } from '../index.js'
 import { noLifecycle } from './filters.js'

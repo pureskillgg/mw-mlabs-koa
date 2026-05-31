@@ -1,7 +1,7 @@
 import path from 'path'
 
-import { createExamples } from '@meltwater/examplr'
-import { createLogger } from '@meltwater/mlabs-logger'
+import { createExamples } from '@pureskillgg/examplr'
+import { createLogger } from '@pureskillgg/mlabs-logger'
 
 import { noLifecycle } from './filters.js'
 import health from './health.js'

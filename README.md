@@ -1,10 +1,8 @@
 # Koa Middleware
 
-[![npm](https://img.shields.io/npm/v/@meltwater/mlabs-koa.svg)](https://www.npmjs.com/package/@meltwater/mlabs-koa)
-[![github](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/meltwater/mlabs-koa)
-[![docs](https://img.shields.io/badge/docs-master-green.svg)](https://github.com/meltwater/mlabs-koa/tree/master/docs)
-[![Codecov](https://img.shields.io/codecov/c/github/meltwater/mlabs-koa.svg)](https://codecov.io/gh/meltwater/mlabs-koa)
-[![CircleCI](https://img.shields.io/circleci/project/github/meltwater/mlabs-koa.svg)](https://circleci.com/gh/meltwater/mlabs-koa)
+[![npm](https://img.shields.io/npm/v/@pureskillgg/mlabs-koa.svg)](https://www.npmjs.com/package/@pureskillgg/mlabs-koa)
+[![github](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/pureskillgg/mw-mlabs-koa)
+[![docs](https://img.shields.io/badge/docs-master-green.svg)](https://github.com/pureskillgg/mw-mlabs-koa/tree/master/docs)
 
 Koa middleware suite and server bootstrapper.
 
@@ -70,13 +68,13 @@ and third party middleware (explicitly linked below).
 Add this as a dependency to your project using [npm] with
 
 ```
-$ npm install awilix koa @meltwater/mlabs-koa
+$ npm install awilix koa @pureskillgg/mlabs-koa
 ```
 
 or using [Yarn] with
 
 ```
-$ yarn add awilix koa @meltwater/mlabs-koa
+$ yarn add awilix koa @pureskillgg/mlabs-koa
 ```
 
 [npm]: https://www.npmjs.com/
@@ -97,7 +95,7 @@ A full example is provided in [`server.js`](./examples/server.js).
 ```js
 import path from 'path'
 
-import createServer from '@meltwater/mlabs-koa'
+import createServer from '@pureskillgg/mlabs-koa'
 import { createDependencies } from '../lib'
 
 if (require.main === module) {
@@ -110,8 +108,8 @@ if (require.main === module) {
 ## Development Quickstart
 
 ```
-$ git clone https://github.com/meltwater/mlabs-koa.git
-$ cd mlabs-koa
+$ git clone https://github.com/pureskillgg/mw-mlabs-koa.git
+$ cd mw-mlabs-koa
 $ nvm install
 $ yarn
 ```
@@ -131,10 +129,10 @@ The [mlabs-koa source] is hosted on GitHub.
 Clone the project with
 
 ```
-$ git clone git@github.com:meltwater/mlabs-koa.git
+$ git clone git@github.com:pureskillgg/mw-mlabs-koa.git
 ```
 
-[mlabs-koa source]: https://github.com/meltwater/mlabs-koa
+[mlabs-koa source]: https://github.com/pureskillgg/mw-mlabs-koa
 
 ### Requirements
 

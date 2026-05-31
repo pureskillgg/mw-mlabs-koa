@@ -13,7 +13,7 @@ Every function described above is a top-level export.
 You can import any of them like this:
 
 ```js
-import { createServer } from '@meltwater/mlabs-koa'
+import { createServer } from '@pureskillgg/mlabs-koa'
 ```
 
 ---
@@ -110,7 +110,7 @@ A scope is created with a child logger setting `isHealthLog` true.
 #### Example
 
 ```
-import { createHealthMonitor } from '@meltwater/mlabs-health'
+import { createHealthMonitor } from '@pureskillgg/mlabs-health'
 
 createHealthMonitor({
   puppies: createHealthCheck('puppies')
@@ -625,10 +625,10 @@ These values are not necessarily the defaults.
 [Awilix]: https://github.com/jeffijoe/awilix
 [Boom]: https://github.com/hapijs/boom
 [confit]: https://github.com/krakenjs/confit
-[logger]: https://github.com/meltwater/mlabs-logger
-[logger documentation]: https://github.com/meltwater/mlabs-logger/tree/master/docs
-[Health Monitor]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthmonitortargets-options
-[createHealthy]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthyoptions
+[logger]: https://github.com/pureskillgg/mlabs-logger
+[logger documentation]: https://github.com/pureskillgg/mlabs-logger/tree/master/docs
+[Health Monitor]: https://github.com/pureskillgg/mlabs-health/tree/master/docs#createhealthmonitortargets-options
+[createHealthy]: https://github.com/pureskillgg/mlabs-health/tree/master/docs#createhealthyoptions
 [koa-logger]: https://github.com/koajs/logger
 [Prometheus Registry]: https://github.com/siimon/prom-client#multiple-registries
 [koa-cors]: https://github.com/koajs/cors

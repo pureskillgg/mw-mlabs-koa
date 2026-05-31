@@ -1,5 +1,5 @@
 {
-  "name": "@meltwater/mlabs-koa",
+  "name": "@pureskillgg/mlabs-koa",
   "version": "12.0.0",
   "description": "Core middleware for Koa apps.",
   "type": "module",
@@ -12,15 +12,16 @@
   "sideEffects": false,
   "keywords": [
     "meltwater",
+    "pureskillgg",
     "node"
   ],
-  "homepage": "https://github.com/meltwater/mlabs-koa",
-  "bugs": "https://github.com/meltwater/mlabs-koa/issues",
-  "repository": "meltwater/mlabs-koa",
+  "homepage": "https://github.com/pureskillgg/mw-mlabs-koa",
+  "bugs": "https://github.com/pureskillgg/mw-mlabs-koa/issues",
+  "repository": "pureskillgg/mw-mlabs-koa",
   "license": "MIT",
   "author": {
     "name": "Evan Sosenko",
-    "email": "evan.sosenko@meltwater.com"
+    "email": "evan@pureskill.gg"
   },
   "files": [
     "yarn.lock",
@@ -126,9 +127,9 @@
     "@hapi/boom": "^9.0.0",
     "@koa/cors": "^3.0.0",
     "@koa/router": "^10.0.0",
-    "@meltwater/mlabs-health": "^2.1.0",
-    "@meltwater/mlabs-logger": "^9.1.1",
-    "@meltwater/phi": "^5.0.0",
+    "@pureskillgg/mlabs-health": "^2.1.0",
+    "@pureskillgg/mlabs-logger": "^9.1.1",
+    "@pureskillgg/phi": "^5.0.0",
     "awaiting": "^3.0.0",
     "awilix": "^7.0.1",
     "change-case": "^4.1.1",
@@ -150,7 +151,7 @@
     "@babel/core": "^7.0.1",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "@meltwater/examplr": "^7.0.0",
+    "@pureskillgg/examplr": "^7.0.0",
     "ava": "^3.3.0",
     "babel-plugin-add-import-extension": "^1.4.3",
     "del-cli": "^3.0.0",
