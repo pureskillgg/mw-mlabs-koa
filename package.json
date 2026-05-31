@@ -117,7 +117,7 @@
     "endOfLine": "lf"
   },
   "engines": {
-    "node": ">=12.13.0"
+    "node": ">=18.0.0"
   },
   "resolutions": {
     "eslint": "^7.12.1",
