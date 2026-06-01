@@ -1,6 +1,6 @@
 {
   "name": "@pureskillgg/mlabs-koa",
-  "version": "12.0.0",
+  "version": "12.0.1",
   "description": "Core middleware for Koa apps.",
   "type": "module",
   "main": "dist/index.cjs",
