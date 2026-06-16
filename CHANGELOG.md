@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [12.0.1] / 2026-06-01
+
+### Changed
+
+- Migrate package scope from `@meltwater` to `@pureskillgg`.
+- Replace CircleCI with GitHub Actions workflows.
+- Update dependencies and require Node.js 18 or later.
+
 ## [12.0.0] / 2022-04-03
 
 ### Changed
