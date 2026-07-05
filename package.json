@@ -3,10 +3,10 @@
   "version": "12.0.1",
   "description": "Core middleware for Koa apps.",
   "type": "module",
-  "main": "dist/index.cjs",
+  "main": "index.js",
   "exports": {
     "import": "./index.js",
-    "require": "./dist/index.cjs"
+    "default": "./index.js"
   },
   "module": "index.js",
   "sideEffects": false,
@@ -17,156 +17,77 @@
   ],
   "homepage": "https://github.com/pureskillgg/mw-mlabs-koa",
   "bugs": "https://github.com/pureskillgg/mw-mlabs-koa/issues",
-  "repository": "pureskillgg/mw-mlabs-koa",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pureskillgg/mw-mlabs-koa.git"
+  },
   "license": "MIT",
   "author": {
     "name": "Evan Sosenko",
     "email": "evan@pureskill.gg"
   },
   "files": [
-    "yarn.lock",
+    "package-lock.json",
     "index.js",
-    "lib",
-    "data",
-    "dist",
-    "docs"
+    "lib"
   ],
   "scripts": {
-    "test": "nyc ava",
-    "pretest": "npm-run-all lint",
+    "test": "c8 ava",
+    "pretest": "node index.js",
     "test:update": "ava --update-snapshots",
     "test:watch": "ava --watch",
-    "test:inspect": "node --inspect node_modules/ava/profile",
-    "test:inspect:watch": "nodemon --inspect node_modules/ava/profile",
-    "lint": "gulp lint",
-    "clean": "del dist",
-    "build": "npm-run-all --parallel build:*",
-    "prebuild": "npm-run-all clean",
-    "build:index": "babel --source-maps --out-file-extension .cjs --out-dir dist index.js",
-    "build:lib": "babel --source-maps --ignore='**/*.spec.js' --out-file-extension .cjs --out-dir dist/lib lib",
-    "dist": "npm-run-all build",
-    "predist": "npm-run-all test",
-    "preversion": "npm-run-all dist",
-    "postversion": "git push && git push --tags",
+    "test:debug": "ava debug --break",
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:js": "eslint .",
+    "lint:prettier": "prettier --check --ignore-path .gitignore '**/*.{js,cjs,mjs,json,yml,yaml,graphql}'",
+    "prepublishOnly": "npm-run-all --parallel lint test",
+    "preversion": "npm-run-all --parallel lint test",
+    "postversion": "git push --follow-tags",
     "example": "node examples",
-    "example:watch": "nodemon examples",
     "example:inspect": "node --inspect examples",
-    "example:inspect:watch": "nodemon --inspect examples",
-    "watch": "gulp watch",
-    "pretty": "prettier --ignore-path .gitignore --write '**/*.(js|json|graphql)'",
-    "format": "npm-run-all --serial pretty format:*",
-    "format:js": "standard --fix",
-    "report": "nyc report"
-  },
-  "babel": {
-    "plugins": [
-      [
-        "babel-plugin-add-import-extension",
-        {
-          "extension": "cjs",
-          "replace": true
-        }
-      ]
-    ],
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
-  },
-  "ava": {
-    "files": [
-      "**/*.spec.js",
-      "!dist/**/*",
-      "!package/**/*"
-    ]
-  },
-  "nyc": {
-    "exclude": [
-      "**/index.js",
-      "lib/bootstrapper.js",
-      "lib/server.js",
-      "dist/**/*.js",
-      "package/**/*.js",
-      "examples/**/*.js",
-      "**/*.spec.js"
-    ],
-    "reporter": [
-      "html",
-      "lcov",
-      "text"
-    ]
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "**/*.spec.js",
-      "test/",
-      "tmp/"
-    ]
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "trailingComma": "none",
-    "endOfLine": "lf"
+    "format": "npm-run-all --parallel format:*",
+    "preformat": "prettier --write --ignore-path .gitignore '**/*.{js,cjs,mjs,json,yml,yaml,graphql}'",
+    "format:js": "eslint --fix .",
+    "report": "c8 report"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.0.0"
   },
-  "resolutions": {
-    "eslint": "^7.12.1",
-    "standard": "^16.0.2"
+  "overrides": {
+    "uuid": "^14.0.1"
   },
   "dependencies": {
-    "@hapi/boom": "^9.0.0",
-    "@koa/cors": "^3.0.0",
-    "@koa/router": "^10.0.0",
-    "@pureskillgg/mlabs-health": "^2.1.0",
-    "@pureskillgg/mlabs-logger": "^9.1.1",
-    "@pureskillgg/phi": "^5.0.0",
+    "@hapi/boom": "^10.0.1",
+    "@koa/cors": "^5.0.0",
+    "@koa/router": "^15.7.0",
+    "@pureskillgg/mlabs-health": "^3.0.0",
+    "@pureskillgg/mlabs-logger": "^10.0.0",
+    "@pureskillgg/phi": "^6.0.0",
     "awaiting": "^3.0.0",
-    "awilix": "^7.0.1",
-    "change-case": "^4.1.1",
-    "chokidar": "^3.0.0",
-    "confit": "^3.0.0",
-    "koa": "^2.0.0",
+    "awilix": "^13.0.5",
+    "change-case": "^5.4.4",
+    "chokidar": "^5.0.0",
+    "confit": "^3.1.0",
+    "koa": "^3.2.1",
     "koa-conditional-get": "^3.0.0",
-    "koa-etag": "^4.0.0",
-    "koa-favicon": "^2.0.0",
-    "koa-helmet": "^6.0.0",
-    "koa-logger": "^3.1.0",
-    "koa-mount": "^4.0.0",
-    "minimatch": "^5.0.0",
-    "prom-client": "^14.0.1",
-    "uuid": "^8.0.0"
+    "koa-etag": "^5.0.0",
+    "koa-favicon": "^2.1.0",
+    "koa-helmet": "^9.0.0",
+    "koa-logger": "^4.0.0",
+    "koa-mount": "^4.2.0",
+    "minimatch": "^10.2.5",
+    "prom-client": "^15.1.3",
+    "uuid": "^14.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.1",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@pureskillgg/examplr": "^7.0.0",
-    "ava": "^3.3.0",
-    "babel-plugin-add-import-extension": "^1.4.3",
-    "del-cli": "^3.0.0",
-    "eslint": "^7.12.1",
-    "gulp": "^4.0.0",
-    "gulp-cli": "^2.0.0",
-    "gulp-jsonlint": "^1.1.2",
-    "gulp-standard": "^14.0.0",
-    "gulp-watch": "^5.0.0",
-    "gulplog": "^1.0.0",
-    "nodemon": "^2.0.1",
-    "npm-run-all": "^4.1.2",
-    "nyc": "^15.0.0",
-    "prettier": "^2.0.1",
-    "standard": "^16.0.2",
-    "testdouble": "^3.2.6"
+    "@pureskillgg/examplr": "^8.0.1",
+    "ava": "^8.0.1",
+    "c8": "^11.0.0",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "neostandard": "^0.13.0",
+    "npm-run-all2": "^9.0.2",
+    "prettier": "^3.9.4",
+    "testdouble": "^3.20.2"
   }
 }

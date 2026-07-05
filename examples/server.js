@@ -1,4 +1,4 @@
-import { createContainer, asClass, asValue, asFunction } from 'awilix'
+import { createContainer, asValue, asFunction } from 'awilix'
 import { collectDefaultMetrics, Registry, Counter } from 'prom-client'
 import Koa from 'koa'
 import Router from '@koa/router'
@@ -26,15 +26,15 @@ const metricDefs = [
 
 const createStart =
   ({ reqId, log, registry, healthMonitor, collectAppMetrics }) =>
-    async () => {
-      healthLogging({
-        log: log.child({ isHealthLog: true, isAppLog: false }),
-        healthMonitor
-      })
-      collectDefaultMetrics({ register: registry })
-      collectAppMetrics({ register: registry })
-      log.info({ reqId }, 'Start')
-    }
+  async () => {
+    healthLogging({
+      log: log.child({ isHealthLog: true, isAppLog: false }),
+      healthMonitor
+    })
+    collectDefaultMetrics({ register: registry })
+    collectAppMetrics({ register: registry })
+    log.info({ reqId }, 'Start')
+  }
 
 const createStop = () => async () => {}
 
@@ -75,7 +75,7 @@ const createDependencies = ({ log, config }) => {
   container.register({
     log: asValue(log),
     metricDefs: asValue(metricDefs),
-    registry: asClass(Registry).singleton(),
+    registry: asFunction(() => new Registry()).singleton(),
     healthMethods: asValue({ health: createHealthy() }),
     healthMonitor: asFunction(createHealthMonitor).singleton(),
     start: asFunction(createStart).singleton(),
